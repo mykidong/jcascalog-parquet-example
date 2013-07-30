@@ -24,6 +24,7 @@ mvn -e -DskipTests=true clean install assembly:single ;
 hadoop fs -rmr parquet/json;
 hadoop fs -rmr parquet/out;
 hadoop fs -rmr /tmp/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
+hadoop fs -mkdir /tmp/lib;
 hadoop fs -mkdir parquet/json;
 hadoop fs -put target/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar /tmp/lib;
 hadoop fs -put src/test/resources/electricPowerUsageGenerator.json parquet/json/
