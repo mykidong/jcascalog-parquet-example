@@ -1,0 +1,33 @@
+{
+  "type": "record",
+  "name": "ElectricPowerUsage",
+  "namespace": "jcascalog.parquet",
+  "fields": [
+    {
+      "name": "addressCode",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "devicePowerEventList",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "DevicePowerEvent",
+          "fields": [
+            {
+              "name": "power",
+              "type": [
+                "null",
+                "double"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
