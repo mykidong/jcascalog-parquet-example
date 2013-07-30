@@ -1,6 +1,6 @@
 {"type": "record", 
  "name": "ElectricPowerUsage",
- "namespace": "jcascalog.parquet.flatten",
+ "namespace": "jcascalog.parquet.example.flatten",
  "fields": [ 
  	{"name": "addressCode", "type": "string"},
  	{"name": "power", "type": "double"}				
