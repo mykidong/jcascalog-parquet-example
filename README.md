@@ -21,20 +21,20 @@ To run M/R Job:
 
 ```
 mvn -e -DskipTests=true clean install assembly:single ;
-hadoop fs -rmr /billy-contrib/parquet/json;
-hadoop fs -rmr /billy-contrib/parquet/out;
-hadoop fs -rmr /billy-contrib/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
-hadoop fs -mkdir /billy-contrib/parquet/json;
-hadoop fs -put target/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar /billy-contrib/lib;
-hadoop fs -put src/test/resources/electricPowerUsageGenerator.json /billy-contrib/parquet/json/
+hadoop fs -rmr parquet/json;
+hadoop fs -rmr parquet/out;
+hadoop fs -rmr /tmp/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
+hadoop fs -mkdir parquet/json;
+hadoop fs -put target/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar /tmp/lib;
+hadoop fs -put src/test/resources/electricPowerUsageGenerator.json parquet/json/
 ```
 
 ```
 hadoop jar target/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar \
               jcascalog.parquet.WriteParquetFromJson \
-              /billy-contrib/parquet/json/electricPowerUsageGenerator.json \
-              /billy-contrib/parquet/out \
-              /billy-contrib/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
+              parquet/json/electricPowerUsageGenerator.json \
+              parquet/out \
+              /tmp/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
 ```
 
 ### Read Specified Columns from Parquet data with raw M/R Job.
@@ -52,9 +52,9 @@ To run this M/R Job:
 ```
 hadoop jar target/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar \
           jcascalog.parquet.ReadSpecifiedColumns \
-          /billy-contrib/parquet/out/  
-          /billy-contrib/parquet/specified-columns \
-          /billy-contrib/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
+          parquet/out/  
+          parquet/specified-columns \
+          /tmp/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
 ```
 
 
@@ -71,16 +71,16 @@ Edit the namenode and jobtracker configuration in jcascalog.parquet.ReadSpecifed
 To run this M/R Job:
 
 ```
-hadoop fs -rmr /billy-contrib/parquet/specified-columns ;
+hadoop fs -rmr parquet/specified-columns ;
 ```
 
 
 ```
 hadoop jar target/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar \
           jcascalog.parquet.ReadSpecifedColumnsWithParquetScheme \
-          /billy-contrib/parquet/out/  \
-          /billy-contrib/parquet/specified-columns \
-          /billy-contrib/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
+          parquet/out/  \
+          parquet/specified-columns \
+          /tmp/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
 ```
 
 
@@ -98,8 +98,8 @@ To run this M/R Job:
 ```
 hadoop jar target/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar \
                   jcascalog.parquet.WriteTextFromParquet \
-                  /billy-contrib/parquet/specified-columns  \
-                  /billy-contrib/parquet/text-out \
-                  /billy-contrib/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
+                  parquet/specified-columns  \
+                  parquet/text-out \
+                  /tmp/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
 ```
 
