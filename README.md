@@ -53,7 +53,7 @@ To run this M/R Job:
 ```
 hadoop jar target/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar \
           jcascalog.parquet.ReadSpecifiedColumns \
-          parquet/out/  
+          parquet/out/  \
           parquet/specified-columns \
           /tmp/lib/jcascalog-parquet-0.1.0-SNAPSHOT-hadoop-job.jar;
 ```
