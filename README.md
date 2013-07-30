@@ -17,7 +17,7 @@ Edit the namenode and jobtracker configuration in jcascalog.parquet.WriteParquet
     conf.set("mapred.job.tracker", "hadoop01:9001");
 ```
    
-To run WriteTrevniFromJson M/R Job:
+To run M/R Job:
 
 ```
 mvn -e -DskipTests=true clean install assembly:single ;
