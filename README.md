@@ -1,6 +1,6 @@
 # jcascalog-parquet-example
 
-JCascalog Example with Parquet Data Format.
+JCascalog Example with [Parquet](https://github.com/Parquet) Data Format.
 
 ## Run Examples
 
