@@ -79,8 +79,8 @@ public class AvroParquetSupportInputFormat extends
 		}
 	    
 	  
-		final AvroParquetReader reader = (filter == null) ? new AvroParquetReader(file.getPath())
-															: new AvroParquetReader(file.getPath(), filter);
+		final AvroParquetReader reader = (filter == null) ? new AvroParquetReader(job, file.getPath())
+															: new AvroParquetReader(job, file.getPath(), filter);
 		
 		return new RecordReader<Void, GenericRecord>() {
 
